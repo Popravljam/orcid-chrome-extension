@@ -21,6 +21,8 @@ This independent tool uses ORCID's public API to enhance the browsing experience
 
 ## 📸 Screenshots
 
+> **Note**: Screenshots coming soon! For now, you can test the extension yourself to see it in action.
+
 ### ORCID ID Detection
 When the extension detects an ORCID ID on a page, it:
 - Highlights the ID in green with an underline
