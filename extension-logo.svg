@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Magnifying glass design based on the provided image -->
+  
+  <!-- Outer ring -->
+  <circle cx="128" cy="128" r="90" fill="none" stroke="#8FB82B" stroke-width="28"/>
+  
+  <!-- Inner ring -->
+  <circle cx="128" cy="128" r="45" fill="none" stroke="#8FB82B" stroke-width="20"/>
+  
+  <!-- Handle -->
+  <rect x="190" y="190" width="20" height="50" rx="10" fill="#8FB82B" transform="rotate(45 200 215)"/>
+</svg>

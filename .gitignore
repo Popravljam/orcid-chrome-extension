@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Build artifacts
+*.zip
+dist/
+build/
+
+# Node modules (if added later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Test files
+coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+tmp/
+temp/

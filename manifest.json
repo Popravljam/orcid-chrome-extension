@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "ORCID ID Detector",
+  "version": "1.1",
+  "description": "Automatically detect ORCID IDs on web pages and display researcher information. This is 3rd party addon, NOT created or endorsed by ORCID, NOT official ORCID software",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://pub.orcid.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["orcid-logo.png", "popup.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ORCID ID Detector"
+  }
+}
