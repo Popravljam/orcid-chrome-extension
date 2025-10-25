@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORCID ID Detector</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 0;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #A6CE39 0%, #8FB82B 100%);
+            color: white;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 20px;
+            background: white;
+            color: #333;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 16px;
+            font-weight: 600;
+            color: #A6CE39;
+        }
+
+        .footer {
+            padding: 15px 20px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer a {
+            color: #A6CE39;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #A6CE39;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.disabled {
+            background: #ccc;
+        }
+
+        .toggle-switch.disabled::after {
+            transform: translateX(20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 280 280">
+                <circle cx="120" cy="120" r="85" fill="none" stroke="white" stroke-width="24"/>
+                <circle cx="120" cy="120" r="42" fill="none" stroke="white" stroke-width="18"/>
+                <line x1="175" y1="175" x2="250" y2="250" stroke="white" stroke-width="28" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h1>ORCID ID Detector v1.1</h1>
+        <p class="subtitle">Automatically detect and enhance ORCID IDs</p>
+        <p class="subtitle" style="font-size: 10px; opacity: 0.8; margin-top: 5px;">Third-party tool, not affiliated with ORCID</p>
+    </div>
+
+    <div class="toggle">
+        <span>Extension Status</span>
+        <div class="toggle-switch" id="toggleSwitch"></div>
+    </div>
+
+    <div class="content">
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 16 16" fill="#A6CE39">
+                <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                <path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 010-.566 7.003 7.003 0 0113.24.006.87.87 0 010 .566A7.003 7.003 0 011.379 8.28zM11 8a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <div class="feature-text">
+                <strong>Auto-Detection:</strong> Automatically finds ORCID IDs on any webpage
+            </div>
+        </div>
+
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 16 16" fill="#A6CE39">
+                <path d="M8 4a.5.5 0 01.5.5v3h3a.5.5 0 010 1h-3v3a.5.5 0 01-1 0v-3h-3a.5.5 0 010-1h3v-3A.5.5 0 018 4z"/>
+            </svg>
+            <div class="feature-text">
+                <strong>Visual Enhancement:</strong> Adds clickable magnifying glass icons next to IDs
+            </div>
+        </div>
+
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 16 16" fill="#A6CE39">
+                <path d="M5.5 7a.5.5 0 000 1h5a.5.5 0 000-1h-5zM5 9.5a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0 2a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"/>
+                <path d="M9.5 0H4a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0011 4.5h2V14a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1h5.5z"/>
+            </svg>
+            <div class="feature-text">
+                <strong>Profile Preview:</strong> Shows researcher info in popup tooltips
+            </div>
+        </div>
+
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 16 16" fill="#A6CE39">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5h5.793L8.146 5.354a.5.5 0 11.708-.708l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.293 8.5H4.5A.5.5 0 014 8z"/>
+            </svg>
+            <div class="feature-text">
+                <strong>Direct Links:</strong> Quick access to full ORCID profiles
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number" id="detectedCount">0</div>
+            <div>Detected</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" id="enhancedCount">0</div>
+            <div>Enhanced</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" id="profilesViewed">0</div>
+            <div>Profiles</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://orcid.org" target="_blank" rel="noopener">Learn more about ORCID</a>
+    </div>
+
+    <script>
+        // Simple popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleSwitch = document.getElementById('toggleSwitch');
+            let isEnabled = true;
+
+            // Load stored state
+            chrome.storage?.sync?.get(['enabled'], function(result) {
+                isEnabled = result.enabled !== false;
+                updateToggle();
+            });
+
+            // Toggle functionality
+            toggleSwitch.addEventListener('click', function() {
+                isEnabled = !isEnabled;
+                updateToggle();
+                
+                // Save state
+                chrome.storage?.sync?.set({enabled: isEnabled});
+                
+                // Send message to content script
+                chrome.tabs?.query({active: true, currentWindow: true}, function(tabs) {
+                    if (tabs[0]) {
+                        chrome.tabs.sendMessage(tabs[0].id, {
+                            action: isEnabled ? 'enable' : 'disable'
+                        });
+                    }
+                });
+            });
+
+            function updateToggle() {
+                toggleSwitch.classList.toggle('disabled', !isEnabled);
+            }
+
+            // Update stats (mock data for now)
+            setTimeout(updateStats, 500);
+
+            function updateStats() {
+                document.getElementById('detectedCount').textContent = Math.floor(Math.random() * 50) + 10;
+                document.getElementById('enhancedCount').textContent = Math.floor(Math.random() * 30) + 5;
+                document.getElementById('profilesViewed').textContent = Math.floor(Math.random() * 15) + 1;
+            }
+        });
+    </script>
+</body>
+</html>

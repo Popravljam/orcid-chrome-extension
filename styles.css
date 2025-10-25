@@ -1,0 +1,434 @@
+/* ORCID ID Detector - Styles */
+
+/* ORCID ID text and logo styling */
+.orcid-detector-container {
+    position: relative !important;
+    display: inline !important;
+}
+
+.orcid-detector-text {
+    cursor: pointer !important;
+    color: #A6CE39 !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+}
+
+.orcid-detector-text:hover {
+    color: #8FB82B !important;
+    text-decoration: none !important;
+}
+
+.orcid-detector-logo {
+    display: inline !important;
+    margin-left: 4px !important;
+    vertical-align: text-top !important;
+    cursor: pointer !important;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.orcid-detector-logo:hover {
+    opacity: 1 !important;
+}
+
+/* Popup styles */
+.orcid-detector-popup {
+    position: absolute !important;
+    z-index: 2147483647 !important; /* Maximum z-index */
+    background: white !important;
+    border: 1px solid #d1d5da !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    max-width: 420px !important;
+    min-width: 350px !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    color: #333 !important;
+}
+
+.orcid-popup-content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.orcid-popup-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 15px !important;
+    border-bottom: 1px solid #e1e4e8 !important;
+    background: linear-gradient(135deg, #A6CE39 0%, #8FB82B 100%) !important;
+    color: white !important;
+    border-radius: 7px 7px 0 0 !important;
+}
+
+.orcid-logo-header {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.orcid-popup-close {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.orcid-popup-close:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.orcid-profile-info {
+    padding: 15px !important;
+}
+
+.orcid-profile-info h3 {
+    margin: 0 0 8px 0 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    line-height: 1.2 !important;
+}
+
+.orcid-id {
+    margin: 0 0 12px 0 !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    word-break: break-all !important;
+}
+
+.orcid-id a {
+    color: #A6CE39 !important;
+    text-decoration: none !important;
+}
+
+.orcid-id a:hover {
+    text-decoration: underline !important;
+}
+
+.orcid-section {
+    margin: 12px 0 !important;
+    padding: 0 !important;
+}
+
+.orcid-section h4 {
+    margin: 0 0 4px 0 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.orcid-section p {
+    margin: 0 !important;
+    color: #333 !important;
+    font-size: 13px !important;
+}
+
+.orcid-link {
+    display: inline-block !important;
+    margin: 2px 8px 2px 0 !important;
+    padding: 2px 8px !important;
+    background: #f8f9fa !important;
+    color: #A6CE39 !important;
+    text-decoration: none !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    border: 1px solid #e9ecef !important;
+    transition: all 0.2s ease !important;
+}
+
+.orcid-link:hover {
+    background: #A6CE39 !important;
+    color: white !important;
+}
+
+/* Loading popup styles */
+.orcid-detector-popup.loading {
+    text-align: center !important;
+    padding: 20px !important;
+    min-width: 200px !important;
+}
+
+.orcid-detector-popup.loading p {
+    margin: 10px 0 0 0 !important;
+    color: #666 !important;
+    font-size: 13px !important;
+}
+
+.loading-spinner {
+    width: 24px !important;
+    height: 24px !important;
+    border: 3px solid #f3f3f3 !important;
+    border-top: 3px solid #A6CE39 !important;
+    border-radius: 50% !important;
+    animation: orcid-spin 1s linear infinite !important;
+    margin: 0 auto !important;
+}
+
+@keyframes orcid-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error popup styles */
+.orcid-detector-popup.error {
+    border-color: #dc3545 !important;
+}
+
+.orcid-detector-popup.error .orcid-popup-header {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+.orcid-detector-popup.error h3 {
+    margin: 0 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+.error-message {
+    font-size: 12px !important;
+    color: #dc3545 !important;
+    font-style: italic !important;
+    margin: 8px 0 !important;
+}
+
+/* Enhanced popup content styles */
+.biography {
+    font-style: italic !important;
+    line-height: 1.4 !important;
+    color: #555 !important;
+}
+
+.date-info {
+    font-size: 11px !important;
+    color: #888 !important;
+    margin-top: 2px !important;
+}
+
+.orcid-stats {
+    margin: 15px 0 !important;
+}
+
+.stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+}
+
+.stat-item {
+    text-align: center !important;
+    padding: 8px 4px !important;
+    background: #f8f9fa !important;
+    border-radius: 4px !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.stat-number {
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #A6CE39 !important;
+    line-height: 1 !important;
+}
+
+.stat-label {
+    display: block !important;
+    font-size: 10px !important;
+    color: #666 !important;
+    margin-top: 2px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.keywords {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin-top: 5px !important;
+}
+
+.keyword-tag {
+    display: inline-block !important;
+    padding: 2px 6px !important;
+    background: #e3f2fd !important;
+    color: #1976d2 !important;
+    border-radius: 10px !important;
+    font-size: 10px !important;
+    border: 1px solid #bbdefb !important;
+}
+
+.external-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin-top: 5px !important;
+}
+
+.work-item {
+    margin: 8px 0 !important;
+    padding: 8px !important;
+    background: #f8f9fa !important;
+    border-radius: 4px !important;
+    border-left: 3px solid #A6CE39 !important;
+}
+
+.work-title {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.3 !important;
+}
+
+.work-type {
+    font-size: 11px !important;
+    color: #666 !important;
+    margin: 0 !important;
+    font-style: italic !important;
+}
+
+.more-info {
+    font-size: 11px !important;
+    color: #888 !important;
+    text-align: center !important;
+    margin: 8px 0 0 0 !important;
+    font-style: italic !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .orcid-detector-popup {
+        max-width: 280px !important;
+        min-width: 250px !important;
+    }
+    
+    .orcid-profile-info {
+        padding: 12px !important;
+    }
+    
+    .orcid-profile-info h3 {
+        font-size: 16px !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .orcid-detector-popup {
+        border: 2px solid #000 !important;
+    }
+    
+    .orcid-detector-text {
+        color: #0066cc !important;
+        text-decoration: underline !important;
+        font-weight: bold !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .orcid-detector-logo,
+    .orcid-link,
+    .orcid-popup-close {
+        transition: none !important;
+    }
+    
+    .loading-spinner {
+        animation: none !important;
+        border-top-color: #A6CE39 !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .orcid-detector-popup {
+        background: #2d3748 !important;
+        border-color: #4a5568 !important;
+        color: #e2e8f0 !important;
+    }
+    
+    .orcid-popup-header {
+        border-bottom-color: #4a5568 !important;
+    }
+    
+    .orcid-profile-info h3 {
+        color: #f7fafc !important;
+    }
+    
+    .orcid-section p {
+        color: #e2e8f0 !important;
+    }
+    
+    .orcid-link {
+        background: #4a5568 !important;
+        border-color: #2d3748 !important;
+        color: #A6CE39 !important;
+    }
+    
+    .orcid-link:hover {
+        background: #A6CE39 !important;
+        color: #2d3748 !important;
+    }
+}
+
+/* Prevent conflicts with host page styles */
+.orcid-detector-popup * {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+.orcid-detector-popup h3,
+.orcid-detector-popup h4,
+.orcid-detector-popup p,
+.orcid-detector-popup a {
+    all: unset !important;
+}
+
+.orcid-detector-popup h3 {
+    display: block !important;
+    margin: 0 0 8px 0 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    line-height: 1.2 !important;
+}
+
+.orcid-detector-popup h4 {
+    display: block !important;
+    margin: 0 0 4px 0 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.orcid-detector-popup p {
+    display: block !important;
+    margin: 0 !important;
+    color: #333 !important;
+    font-size: 13px !important;
+}
+
+.orcid-detector-popup a {
+    display: inline !important;
+    color: #A6CE39 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
