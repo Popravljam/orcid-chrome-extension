@@ -54,10 +54,34 @@ Clicking on an enhanced ORCID ID shows:
 
 ### Automatic Detection
 The extension automatically scans web pages for ORCID IDs in these formats:
-- `https://orcid.org/0000-0000-0000-0000`
-- `https://www.orcid.org/0000-0000-0000-0000`
-- `orcid.org/0000-0000-0000-0000`
-- `0000-0000-0000-0000` (plain format)
+- `https://orcid.org/0000-0000-0000-0000
+            
+                
+                
+                
+            
+        `
+- `https://www.orcid.org/0000-0000-0000-0000
+            
+                
+                
+                
+            
+        `
+- `orcid.org/0000-0000-0000-0000
+            
+                
+                
+                
+            
+        `
+- `0000-0000-0000-0000
+            
+                
+                
+                
+            
+        ` (plain format)
 - Works with sandbox URLs too
 
 ### Viewing Profiles
@@ -211,9 +235,6 @@ MIT License - feel free to use, modify, and distribute.
 
 Future features under consideration:
 - Firefox extension version
-- Batch ORCID ID processing
-- Export functionality for detected researchers
-- Integration with reference managers
 - Custom highlighting styles
 - Research collaboration suggestions
 
