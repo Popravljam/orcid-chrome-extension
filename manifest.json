@@ -5,9 +5,6 @@
   "description": "Detect ORCID iDs on any page and open a quick profile preview. Third‑party; not created or endorsed by ORCID. No data collection.",
   "author": "Lazar Čovs",
   "homepage_url": "https://github.com/Popravljam/orcid-chrome-extension",
-  "permissions": [
-    "activeTab"
-  ],
   "host_permissions": [
     "https://pub.orcid.org/*"
   ],
