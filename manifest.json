@@ -38,10 +38,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "orcid-detector@popravljam.github.io",
-      "strict_min_version": "140.0",
-      "data_collection_permissions": {
-        "required": false
-      }
+      "strict_min_version": "109.0"
     }
   }
 }
