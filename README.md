@@ -1,4 +1,4 @@
-# ORCID ID Detector - Chrome Extension (v1.1)
+# ORCID ID Detector - Browser Extension (v1.2)
 
 Automatically detect ORCID IDs on web pages and display researcher information in interactive popups.
 
@@ -39,7 +39,9 @@ Clicking on an enhanced ORCID ID shows:
 
 ## 🚀 Installation
 
-### Method 1: Load Unpacked Extension (Developer Mode)
+### Chrome
+
+#### Method 1: Load Unpacked Extension (Developer Mode)
 
 1. **Download the extension files** to your computer
 2. **Open Chrome** and navigate to `chrome://extensions/`
@@ -47,8 +49,21 @@ Clicking on an enhanced ORCID ID shows:
 4. **Click "Load unpacked"** and select the extension folder
 5. **The extension is now active!** Look for the ORCID logo in your toolbar
 
-### Method 2: From Chrome Web Store (Future)
+#### Method 2: From Chrome Web Store (Future)
 *This extension is not yet published to the Chrome Web Store*
+
+### Firefox
+
+#### Method 1: Load Temporary Add-on (Developer Mode)
+
+1. **Download the extension files** to your computer
+2. **Open Firefox** and navigate to `about:debugging#/runtime/this-firefox`
+3. **Click "Load Temporary Add-on"**
+4. **Select the `manifest.json` file** from the extension folder
+5. **The extension is now active!** Note: Temporary add-ons are removed when Firefox restarts
+
+#### Method 2: From Firefox Add-ons (Future)
+*This extension is not yet published to the Firefox Add-ons store*
 
 ## 📖 Usage
 
@@ -185,6 +200,7 @@ The extension recognizes ORCID IDs in various formats commonly found on academic
 ## 🌐 Browser Compatibility
 
 - **Chrome**: Version 88+
+- **Firefox**: Version 109+
 - **Edge**: Chromium-based versions
 - **Other Chromium browsers**: Should work but not officially tested
 
@@ -234,9 +250,9 @@ MIT License - feel free to use, modify, and distribute.
 ## 📊 What's Next
 
 Future features under consideration:
-- Firefox extension version
 - Custom highlighting styles
 - Research collaboration suggestions
+- Advanced filtering options
 
 ---
 
