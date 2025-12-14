@@ -162,7 +162,7 @@
         const logoSpan = document.createElement('span');
         logoSpan.className = 'orcid-detector-logo';
         logoSpan.innerHTML = `
-            <svg width="16" height="16" viewBox="0 0 280 280" style="margin-left: 4px; vertical-align: text-top; cursor: pointer;">
+            <svg width="16" height="16" viewBox="0 0 280 280" style="margin-left: -2px; vertical-align: 2px; cursor: pointer;">
                 <circle cx="120" cy="120" r="85" fill="none" stroke="#8FB82B" stroke-width="24"/>
                 <circle cx="120" cy="120" r="42" fill="none" stroke="#8FB82B" stroke-width="18"/>
                 <line x1="175" y1="175" x2="250" y2="250" stroke="#8FB82B" stroke-width="28" stroke-linecap="round"/>
