@@ -200,7 +200,7 @@ The extension recognizes ORCID IDs in various formats commonly found on academic
 ## 🌐 Browser Compatibility
 
 - **Chrome**: Version 88+
-- **Firefox**: Version 109+
+- **Firefox**: Version 140+ (released December 2024)
 - **Edge**: Chromium-based versions
 - **Other Chromium browsers**: Should work but not officially tested
 
