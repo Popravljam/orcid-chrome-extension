@@ -13,6 +13,14 @@
     // ORCID ID regex pattern - matches various formats
     const ORCID_REGEX = /(?:(?:https?:\/\/)?(?:www\.)?(?:sandbox\.)?orcid\.org\/)?(?:orcid\/)?(?:id\/)?(\d{4}-\d{4}-\d{4}-\d{3}[\dX])/gi;
     
+    // Escape HTML to prevent XSS
+    function escapeHtml(text) {
+        if (typeof text !== 'string') return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
     // Cache for ORCID profile data to avoid duplicate API calls
     const profileCache = new Map();
     
@@ -330,27 +338,27 @@
                 </div>
                 
                 <div class="orcid-profile-info">
-                    <h3>${name.trim() || 'Name not provided'}</h3>
+                    <h3>${escapeHtml(name.trim()) || 'Name not provided'}</h3>
                     <p class="orcid-id">
-                        <a href="https://orcid.org/${orcidId}" target="_blank" rel="noopener">
-                            https://orcid.org/${orcidId}
+                        <a href="https://orcid.org/${escapeHtml(orcidId)}" target="_blank" rel="noopener">
+                            https://orcid.org/${escapeHtml(orcidId)}
                         </a>
                     </p>
                     
                     ${biography ? `
                         <div class="orcid-section">
                             <h4>Biography</h4>
-                            <p class="biography">${biography.length > 150 ? biography.substring(0, 150) + '...' : biography}</p>
+                            <p class="biography">${escapeHtml(biography.length > 150 ? biography.substring(0, 150) + '...' : biography)}</p>
                         </div>
                     ` : ''}
                     
                     ${currentEmployment ? `
                         <div class="orcid-section">
                             <h4>Current Position</h4>
-                            <p><strong>${currentEmployment['role-title'] || 'Position not specified'}</strong></p>
-                            <p>${currentEmployment.organization?.name || 'Organization not specified'}</p>
+                            <p><strong>${escapeHtml(currentEmployment['role-title'] || 'Position not specified')}</strong></p>
+                            <p>${escapeHtml(currentEmployment.organization?.name || 'Organization not specified')}</p>
                             ${currentEmployment['start-date'] ? `
-                                <p class="date-info">Since ${currentEmployment['start-date'].year?.value || ''}</p>
+                                <p class="date-info">Since ${escapeHtml(currentEmployment['start-date'].year?.value || '')}</p>
                             ` : ''}
                         </div>
                     ` : ''}
@@ -358,10 +366,10 @@
                     ${highestEducation ? `
                         <div class="orcid-section">
                             <h4>Education</h4>
-                            <p><strong>${highestEducation['role-title'] || 'Degree not specified'}</strong></p>
-                            <p>${highestEducation.organization?.name || 'Institution not specified'}</p>
+                            <p><strong>${escapeHtml(highestEducation['role-title'] || 'Degree not specified')}</strong></p>
+                            <p>${escapeHtml(highestEducation.organization?.name || 'Institution not specified')}</p>
                             ${highestEducation['end-date'] ? `
-                                <p class="date-info">${highestEducation['end-date'].year?.value || ''}</p>
+                                <p class="date-info">${escapeHtml(highestEducation['end-date'].year?.value || '')}</p>
                             ` : ''}
                         </div>
                     ` : ''}
@@ -393,7 +401,7 @@
                             <h4>Keywords</h4>
                             <div class="keywords">
                                 ${keywords.slice(0, 5).map(keyword => `
-                                    <span class="keyword-tag">${keyword.content || keyword}</span>
+                                    <span class="keyword-tag">${escapeHtml(keyword.content || keyword)}</span>
                                 `).join('')}
                             </div>
                         </div>
@@ -404,8 +412,8 @@
                             <h4>External Links</h4>
                             <div class="external-links">
                                 ${urls.slice(0, 4).map(url => `
-                                    <a href="${url.url.value}" target="_blank" rel="noopener" class="orcid-link">
-                                        ${url['url-name'] || 'Link'}
+                                    <a href="${escapeHtml(url.url.value)}" target="_blank" rel="noopener" class="orcid-link">
+                                        ${escapeHtml(url['url-name'] || 'Link')}
                                     </a>
                                 `).join('')}
                             </div>
@@ -417,11 +425,11 @@
                             <h4>Recent Works</h4>
                             ${worksList.slice(0, 3).map(work => `
                                 <div class="work-item">
-                                    <p class="work-title">${work.title?.title?.value || 'Untitled work'}</p>
-                                    <p class="work-type">${work.type || 'Unknown type'} ${work['publication-date']?.year?.value ? '(' + work['publication-date'].year.value + ')' : ''}</p>
+                                    <p class="work-title">${escapeHtml(work.title?.title?.value || 'Untitled work')}</p>
+                                    <p class="work-type">${escapeHtml(work.type || 'Unknown type')} ${work['publication-date']?.year?.value ? '(' + escapeHtml(work['publication-date'].year.value) + ')' : ''}</p>
                                 </div>
                             `).join('')}
-                            ${worksCount > 3 ? `<p class="more-info">+${worksCount - 3} more works</p>` : ''}
+                            ${worksCount > 3 ? `<p class="more-info">+${escapeHtml(worksCount - 3)} more works</p>` : ''}
                         </div>
                     ` : ''}
                 </div>
@@ -448,10 +456,10 @@
                     <button class="orcid-popup-close">&times;</button>
                 </div>
                 <div class="orcid-profile-info">
-                    <p>Could not load profile for ${orcidId}</p>
-                    <p class="error-message">${errorMessage}</p>
+                    <p>Could not load profile for ${escapeHtml(orcidId)}</p>
+                    <p class="error-message">${escapeHtml(errorMessage)}</p>
                     <p class="orcid-id">
-                        <a href="https://orcid.org/${orcidId}" target="_blank" rel="noopener">
+                        <a href="https://orcid.org/${escapeHtml(orcidId)}" target="_blank" rel="noopener">
                             View on ORCID.org
                         </a>
                     </p>
