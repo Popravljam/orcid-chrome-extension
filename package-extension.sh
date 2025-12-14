@@ -8,7 +8,12 @@ echo ""
 
 # Set variables
 EXTENSION_NAME="orcid-id-detector"
-VERSION="1.1"
+# Read version from manifest.json (prefer jq; fallback to grep)
+if command -v jq &> /dev/null; then
+  VERSION=$(jq -r '.version' manifest.json)
+else
+  VERSION=$(grep -o '"version": "[^"]*"' manifest.json | cut -d'"' -f4)
+fi
 PACKAGE_DIR="${EXTENSION_NAME}-v${VERSION}"
 ZIP_NAME="${EXTENSION_NAME}-v${VERSION}.zip"
 
