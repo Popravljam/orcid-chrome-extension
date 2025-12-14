@@ -11,7 +11,7 @@ ORCID ID Detector
 
 ### Summary (132 characters max)
 ```
-Detect ORCID IDs on any webpage and view researcher profiles instantly. Privacy-friendly, all processing done locally.
+Detect ORCID iDs on any page and open a quick profile preview. Third‑party; not created or endorsed by ORCID. No data collection.
 ```
 
 ### Description (Detailed)
@@ -73,42 +73,26 @@ Perfect for researchers, journalists, librarians, academic administrators, and a
 
 ### Category
 ```
-Productivity
+Search Tools
 ```
 
 ### Language
 ```
-English
+English (United States)
 ```
 
 ## Privacy Practices
 
 ### Single Purpose Description
 ```
-This extension detects ORCID identifiers on web pages and displays publicly available researcher profile information from ORCID's public API in a popup window.
+Detect ORCID iDs on webpages and, when clicked, show an in‑page profile preview using ORCID’s public API—nothing else.
 ```
 
 ### Permission Justifications
 
-#### Host Permissions (`<all_urls>`)
-```
-Justification: Required to scan web pages for ORCID identifiers. The extension needs to read page content to detect ORCID IDs in various formats (plain text, URLs, etc.). All processing happens locally in the browser - no data is sent to any server.
-
-User Benefit: Users can automatically detect and interact with ORCID IDs on any webpage they visit without manually searching.
-```
-
 #### Host Permission (`https://pub.orcid.org/*`)
 ```
-Justification: Required to fetch publicly available researcher profile information from ORCID's public API. API calls are only made when the user explicitly clicks on a detected ORCID ID.
-
-User Benefit: Users can view detailed researcher information instantly without leaving their current page.
-```
-
-#### Active Tab Permission
-```
-Justification: Required to access the current page content for ORCID ID detection when the extension is active.
-
-User Benefit: Enables automatic detection of ORCID IDs on the page the user is currently viewing.
+This permission allows the extension to fetch public ORCID profile data from ORCID’s official API (https://pub.orcid.org/*) only after the user clicks an ORCID iD. No other domains are accessed, and no data is collected, stored, or shared. Responses are JSON only (no remote code), used to render a temporary in‑page preview.
 ```
 
 ### Data Usage Disclosure
@@ -128,6 +112,7 @@ NO - This extension does NOT collect any user data.
 
 ### Icon
 - **128x128**: `icon128.png` (magnifying glass icon in green)
+- Path on disk: `/Users/lazar/orcid-chrome-extension/icon128.png`
 - Already created and included
 
 ### Screenshots (1280x800 or 640x400)
@@ -159,7 +144,7 @@ NO - This extension does NOT collect any user data.
 
 ### Website
 ```
-https://github.com/[your-username]/orcid-chrome-extension
+https://github.com/Popravljam/orcid-chrome-extension
 ```
 
 ### Support Email
@@ -169,14 +154,14 @@ https://github.com/[your-username]/orcid-chrome-extension
 
 ### Privacy Policy URL
 ```
-https://github.com/[your-username]/orcid-chrome-extension/blob/main/PRIVACY_POLICY.md
+https://github.com/Popravljam/orcid-chrome-extension/blob/main/PRIVACY_POLICY.md
 ```
 
 ## Pre-Submission Checklist
 
 - [x] Extension tested in Chrome
 - [x] All console errors fixed
-- [x] Version number set to 1.1
+- [x] Version number set to 1.3
 - [x] Privacy policy created
 - [x] README documentation complete
 - [x] manifest.json validated
@@ -198,6 +183,17 @@ https://github.com/[your-username]/orcid-chrome-extension/blob/main/PRIVACY_POLI
 5. Plan future updates based on feedback
 
 ## Version History
+
+### Version 1.3
+- Remove unnecessary activeTab permission (least privilege)
+- Fix icon clipping; regenerate all icon sizes with safe margins
+- Improve Firefox compliance (built‑in consent field, data sanitization)
+- Packaging scripts read version from manifest; publish v1.3 ZIP/XPI
+
+### Version 1.2
+- Add Firefox compatibility and packaging script
+- Security hardening: escape HTML from API responses
+- UI tweaks for inline icon alignment
 
 ### Version 1.1 (Initial Release)
 - Automatic ORCID ID detection
