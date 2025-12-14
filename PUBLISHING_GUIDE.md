@@ -1,15 +1,15 @@
-# Publishing Guide - ORCID ID Detector v1.1
+# Publishing Guide - ORCID ID Detector v1.2
 
 ## 🎉 Your Extension is Ready for Publication!
 
-This guide will walk you through publishing your extension to the Chrome Web Store.
+This guide will walk you through publishing your extension to both the Chrome Web Store and Firefox Add-ons.
 
 ## 📦 What's Included
 
 Your extension package includes:
 
 ### Core Files
-- ✅ `manifest.json` - Extension configuration (v1.1)
+- ✅ `manifest.json` - Extension configuration (v1.2, Chrome & Firefox compatible)
 - ✅ `content.js` - Main detection and popup logic
 - ✅ `styles.css` - Styling for popups and elements
 - ✅ `popup.html` - Extension management interface
@@ -23,11 +23,14 @@ Your extension package includes:
 - ✅ `INSTALL.md` - Installation instructions for users
 
 ### Tools
-- ✅ `package-extension.sh` - Automated packaging script
+- ✅ `package-extension.sh` - Chrome Web Store packaging script
+- ✅ `package-firefox.sh` - Firefox Add-ons packaging script
 
 ## 🚀 Quick Publishing Steps
 
-### Step 1: Create the Package
+# Chrome Web Store Publishing
+
+### Step 1: Create the Chrome Package
 
 Run the packaging script:
 
@@ -42,7 +45,7 @@ This will:
 - Create a ZIP file ready for upload
 - Show you a checklist of remaining tasks
 
-The script creates: `orcid-id-detector-v1.1.zip`
+The script creates: `orcid-id-detector-v1.2.zip`
 
 ### Step 2: Create Required Assets
 
@@ -105,7 +108,7 @@ Before submitting to Chrome Web Store, ensure you have:
 2. **Click "New Item"**
 
 3. **Upload the ZIP file**
-   - Upload `orcid-id-detector-v1.1.zip`
+   - Upload `orcid-id-detector-v1.2.zip`
 
 4. **Fill in Store Listing**
    - Copy information from `CHROME_STORE_LISTING.md`
@@ -237,6 +240,128 @@ If rejected:
   
 - Q: "Are you affiliated with ORCID?"
   A: No, clearly stated in disclaimers throughout
+
+---
+
+# Firefox Add-ons Publishing
+
+## 📦 Firefox-Specific Steps
+
+### Step 1: Create the Firefox Package
+
+Run the Firefox packaging script:
+
+```bash
+./package-firefox.sh
+```
+
+This creates: `orcid-detector-firefox-v1.2.xpi`
+
+### Step 2: Set Up Firefox Developer Account
+
+1. **Create Account**
+   - Go to: https://addons.mozilla.org/developers/
+   - Sign up or log in with Firefox Account
+   - No registration fee required (unlike Chrome)
+
+2. **Verify Email**
+   - Confirm your email address
+
+### Step 3: Submit to Firefox Add-ons
+
+1. **Go to Developer Hub**
+   - https://addons.mozilla.org/developers/addon/submit/distribution
+
+2. **Choose Distribution**
+   - Select "On this site" (for Firefox Add-ons store)
+
+3. **Upload the XPI File**
+   - Upload `orcid-detector-firefox-v1.2.xpi`
+   - Firefox will automatically validate the package
+
+4. **Fill in Add-on Details**
+   - **Name**: ORCID ID Detector
+   - **Summary**: Automatically detect ORCID IDs and display researcher profiles
+   - **Description**: (use description from CHROME_STORE_LISTING.md)
+   - **Categories**: Search Tools, Privacy & Security
+   - **License**: MIT
+   - **Privacy Policy**: Same URL as Chrome version
+   - **Support Email**: Your support email
+   - **Support Website**: Your GitHub repo URL
+
+5. **Upload Screenshots**
+   - Use the same screenshots as Chrome (Firefox accepts various sizes)
+   - 3-5 screenshots recommended
+
+6. **Version Notes**
+   - Add release notes for version 1.2:
+     ```
+     - Initial Firefox release
+     - Improved icon positioning
+     - Cross-browser compatibility
+     ```
+
+7. **Technical Details**
+   - Firefox will show detected permissions
+   - Review and confirm they're accurate
+
+8. **Submit for Review**
+   - Click "Submit Version"
+   - Firefox review is typically faster than Chrome (1-2 days)
+
+### Step 4: Automated vs Manual Review
+
+Firefox has two review tracks:
+
+- **Automated Review**: Usually completes in minutes to hours
+- **Manual Review**: Required for:
+  - First-time submission
+  - Permissions changes
+  - Code obfuscation
+
+Your extension will likely go through manual review initially.
+
+## ✅ Firefox-Specific Checklist
+
+- [ ] Firefox developer account created
+- [ ] XPI package created and tested
+- [ ] Extension tested in Firefox
+- [ ] All listing information prepared
+- [ ] Screenshots uploaded
+- [ ] Privacy policy URL accessible
+- [ ] Support information provided
+- [ ] Version notes added
+
+## 🔍 What Firefox Reviewers Check
+
+1. **Security**: No malicious code or vulnerabilities
+2. **Privacy**: Follows stated privacy policy
+3. **Performance**: No excessive resource usage
+4. **Quality**: Works as described
+5. **Compliance**: Follows Firefox add-on policies
+
+## 📧 After Firefox Publication
+
+1. **Get Your Add-on URL**
+   - Will be: `https://addons.mozilla.org/firefox/addon/orcid-id-detector/`
+
+2. **Add Firefox Badge to README**
+   ```markdown
+   [![Firefox Add-on](https://img.shields.io/amo/v/orcid-id-detector)](https://addons.mozilla.org/firefox/addon/orcid-id-detector/)
+   ```
+
+3. **Monitor Reviews**
+   - Respond to user reviews on both platforms
+
+## 📊 Firefox vs Chrome Publishing
+
+| Aspect | Chrome | Firefox |
+|--------|--------|--------|
+| Registration Fee | $5 one-time | Free |
+| Review Time | 1-3 days | 1-2 days |
+| Automated Review | No | Yes (for some) |
+| Package Format | .zip | .xpi |
+| Developer Dashboard | chrome.google.com/webstore | addons.mozilla.org |
 
 ---
 
