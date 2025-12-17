@@ -21,7 +21,7 @@ If you find a bug or have a suggestion:
 1. **Fork the repository**
 2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
 3. **Make your changes** following the coding standards below
-4. **Test thoroughly** in Chrome (and Edge if possible)
+4. **Test thoroughly** in both Chrome and Firefox
 5. **Commit your changes** with clear, descriptive messages
 6. **Push to your fork** (`git push origin feature/amazing-feature`)
 7. **Open a Pull Request** with a clear description
@@ -80,10 +80,18 @@ Before submitting changes:
 
 ## Development Setup
 
+### Chrome/Edge
 1. Clone the repository
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode"
 4. Click "Load unpacked" and select the project directory
+5. Make changes and reload the extension to test
+
+### Firefox
+1. Clone the repository
+2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
+3. Click "Load Temporary Add-on"
+4. Select the `manifest.json` file from the project directory
 5. Make changes and reload the extension to test
 
 ## Questions?

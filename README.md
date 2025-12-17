@@ -2,6 +2,8 @@
 
 Automatically detect ORCID IDs on web pages and display researcher information in interactive popups.
 
+**✨ Now available for Chrome and Firefox! ✨**
+
 ## ⚠️ Important Disclaimer
 
 **This is a third-party browser extension, NOT created or endorsed by ORCID. This is NOT official ORCID software.**
@@ -49,8 +51,8 @@ Clicking on an enhanced ORCID ID shows:
 4. **Click "Load unpacked"** and select the extension folder
 5. **The extension is now active!** Look for the ORCID logo in your toolbar
 
-#### Method 2: From Chrome Web Store (Future)
-*This extension is not yet published to the Chrome Web Store*
+#### Method 2: From Chrome Web Store (Coming Soon)
+*Chrome Web Store publication in progress. Check back soon!*
 
 ### Firefox
 
@@ -62,8 +64,8 @@ Clicking on an enhanced ORCID ID shows:
 4. **Select the `manifest.json` file** from the extension folder
 5. **The extension is now active!** Note: Temporary add-ons are removed when Firefox restarts
 
-#### Method 2: From Firefox Add-ons (Future)
-*This extension is not yet published to the Firefox Add-ons store*
+#### Method 2: From Firefox Add-ons
+[Install from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/orcid-id-detector/)
 
 ## 📖 Usage
 
@@ -110,7 +112,7 @@ The extension automatically scans web pages for ORCID IDs in these formats:
 4. **Click outside** or the X button to close the popup
 
 ### Extension Management
-Click the magnifying glass icon in your Chrome toolbar to:
+Click the magnifying glass icon in your browser toolbar to:
 - Toggle the extension on/off
 - View detection statistics
 - Access extension information

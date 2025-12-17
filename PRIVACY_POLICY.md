@@ -96,6 +96,7 @@ This extension is not created, maintained, or endorsed by ORCID. ORCID® is a re
 This extension complies with:
 
 - Chrome Web Store Developer Program Policies
+- Firefox Add-ons Policies
 - General Data Protection Regulation (GDPR)
 - California Consumer Privacy Act (CCPA)
 - Other applicable privacy laws
