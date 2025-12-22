@@ -2,26 +2,26 @@
 
 Automatically detect ORCID IDs on web pages and display researcher information in interactive popups.
 
-**✨ Now available for Chrome and Firefox! ✨**
+**Now available for Chrome and Firefox!**
 
-## ⚠️ Important Disclaimer
+## Important Disclaimer
 
 **This is a third-party browser extension, NOT created or endorsed by ORCID. This is NOT official ORCID software.**
 
 This independent tool uses ORCID's public API to enhance the browsing experience when encountering ORCID identifiers on web pages. ORCID® is a registered trademark of ORCID, Inc.
 
-## 🌟 Features
+## Features
 
-- **🔍 Automatic Detection**: Finds ORCID IDs in various formats across any webpage
-- **✨ Visual Enhancement**: Adds clickable magnifying glass icons next to detected IDs
-- **📋 Profile Previews**: Shows researcher information in beautiful popup tooltips
-- **🔗 Direct Links**: Quick access to full ORCID profiles
-- **⚡ Real-time Processing**: Works with dynamic content and single-page apps
-- **🎨 Responsive Design**: Adapts to different screen sizes and themes
-- **🌙 Dark Mode Support**: Automatically adapts to dark/light theme preferences
-- **♿ Accessibility**: Supports high contrast and reduced motion preferences
+- **Automatic Detection**: Finds ORCID IDs in various formats across any webpage
+- **Visual Enhancement**: Adds clickable magnifying glass icons next to detected IDs
+- **Profile Previews**: Shows researcher information in beautiful popup tooltips
+- **Direct Links**: Quick access to full ORCID profiles
+- **Real-time Processing**: Works with dynamic content and single-page apps
+- **Responsive Design**: Adapts to different screen sizes and themes
+- **Dark Mode Support**: Automatically adapts to dark/light theme preferences
+- **Accessibility**: Supports high contrast and reduced motion preferences
 
-## 📸 Screenshots
+## Screenshots
 
 > **Note**: Screenshots coming soon! For now, you can test the extension yourself to see it in action.
 
@@ -39,7 +39,7 @@ Clicking on an enhanced ORCID ID shows:
 - External links (personal website, social profiles)
 - Direct link to full ORCID profile
 
-## 🚀 Installation
+## Installation
 
 ### Chrome
 
@@ -67,7 +67,7 @@ Clicking on an enhanced ORCID ID shows:
 #### Method 2: From Firefox Add-ons
 [Install from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/orcid-id-detector/)
 
-## 📖 Usage
+## Usage
 
 ### Automatic Detection
 The extension automatically scans web pages for ORCID IDs in these formats:
@@ -117,7 +117,7 @@ Click the magnifying glass icon in your browser toolbar to:
 - View detection statistics
 - Access extension information
 
-## 🔧 Technical Details
+## Technical Details
 
 ### ORCID ID Detection
 - Uses robust regex patterns to match various ORCID ID formats
@@ -133,25 +133,25 @@ Click the magnifying glass icon in your browser toolbar to:
 
 ### Privacy & Security
 
-**🔒 100% Privacy-Friendly - Zero Data Collection**
+**100% Privacy-Friendly - Zero Data Collection**
 
 This extension is designed with your privacy as the top priority:
 
-- **✅ No data collection**: Extension doesn't collect, store, or transmit ANY personal data
-- **✅ No remote servers**: We don't operate any servers - no data is sent to us
-- **✅ Local processing only**: All ORCID ID detection happens locally in your browser
-- **✅ No tracking**: Zero analytics, no usage statistics, no behavior tracking
-- **✅ No cookies**: No tracking cookies or persistent identifiers
-- **✅ Public API only**: Only accesses publicly available ORCID information via direct API calls
-- **✅ You're in control**: API calls only happen when YOU click on an ORCID ID
-- **✅ Memory-only cache**: Temporary caching in browser memory only, cleared when you close the browser
-- **✅ Open source**: All code is visible and auditable
+- **No data collection**: Extension doesn't collect, store, or transmit ANY personal data
+- **No remote servers**: We don't operate any servers - no data is sent to us
+- **Local processing only**: All ORCID ID detection happens locally in your browser
+- **No tracking**: Zero analytics, no usage statistics, no behavior tracking
+- **No cookies**: No tracking cookies or persistent identifiers
+- **Public API only**: Only accesses publicly available ORCID information via direct API calls
+- **You're in control**: API calls only happen when YOU click on an ORCID ID
+- **Memory-only cache**: Temporary caching in browser memory only, cleared when you close the browser
+- **Open source**: All code is visible and auditable
 
 **The ONLY external communication** is direct API calls from your browser to ORCID's public API (pub.orcid.org) when you explicitly click on an ORCID ID. These calls retrieve publicly available researcher information.
 
 See our [Privacy Policy](PRIVACY_POLICY.md) for complete details.
 
-## 🛠 Development
+## Development
 
 ### File Structure
 ```
@@ -184,29 +184,29 @@ orcid-chrome-extension/
 - Usage statistics
 - Feature overview
 
-## 🔍 Supported ORCID ID Formats
+## Supported ORCID ID Formats
 
 The extension recognizes ORCID IDs in various formats commonly found on academic websites:
 
 ```
-✅ https://orcid.org/0000-0000-0000-0000
-✅ https://www.orcid.org/0000-0000-0000-0000
-✅ http://orcid.org/0000-0000-0000-0000
-✅ orcid.org/0000-0000-0000-0000
-✅ 0000-0000-0000-0000
-✅ ORCID: 0000-0000-0000-0000
-✅ ORCID ID: 0000-0000-0000-0000
-✅ Sandbox URLs (sandbox.orcid.org)
+https://orcid.org/0000-0000-0000-0000
+https://www.orcid.org/0000-0000-0000-0000
+http://orcid.org/0000-0000-0000-0000
+orcid.org/0000-0000-0000-0000
+0000-0000-0000-0000
+ORCID: 0000-0000-0000-0000
+ORCID ID: 0000-0000-0000-0000
+Sandbox URLs (sandbox.orcid.org)
 ```
 
-## 🌐 Browser Compatibility
+## Browser Compatibility
 
 - **Chrome**: Version 88+
 - **Firefox**: Version 109+
 - **Edge**: Chromium-based versions
 - **Other Chromium browsers**: Should work but not officially tested
 
-## 📋 Permissions Explained
+## Permissions Explained
 
 The extension requests minimal permissions:
 
@@ -214,7 +214,7 @@ The extension requests minimal permissions:
 - **`https://pub.orcid.org/*`**: Enables API calls to fetch profile data
 - **Host permissions**: Required to run content script on all websites
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Extension Not Working
 1. Check if Developer Mode is enabled in `chrome://extensions/`
@@ -231,7 +231,7 @@ The extension requests minimal permissions:
 2. Verify the ORCID ID is valid by visiting it directly
 3. Some ORCID profiles may have limited public information
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to:
 - Report bugs and issues
@@ -239,17 +239,17 @@ Contributions are welcome! Please feel free to:
 - Submit pull requests
 - Improve documentation
 
-## 📄 License
+## License
 
 MIT License - feel free to use, modify, and distribute.
 
-## 🔗 Related Links
+## Related Links
 
 - [ORCID Official Website](https://orcid.org)
 - [ORCID API Documentation](https://info.orcid.org/documentation/)
 - [Chrome Extension Developer Guide](https://developer.chrome.com/docs/extensions/)
 
-## 📊 What's Next
+## What's Next
 
 Future features under consideration:
 - Custom highlighting styles
@@ -258,4 +258,4 @@ Future features under consideration:
 
 ---
 
-**Made with ❤️ for the research community**
+**Made for the research community**
