@@ -23,10 +23,12 @@ Icon
 *.swo
 *~
 
-# Build artifacts
-*.zip
+# Build artifacts (but keep releases/ directory)
+/*.zip
+/*.xpi
 dist/
 build/
+!releases/
 
 # Node modules (if added later)
 node_modules/
