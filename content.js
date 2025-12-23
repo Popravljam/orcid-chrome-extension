@@ -29,10 +29,73 @@
     
     // Track processed text to avoid reprocessing the same content
     const processedTextContent = new Set();
+    
+    // Track processed ORCID links to avoid duplicate processing
+    const processedORCIDLinks = new WeakSet();
+
+    // Process existing ORCID links with logos (e.g., orcid_16x16.png)
+    function processExistingORCIDLinks() {
+        // Find all links to orcid.org
+        const orcidLinks = document.querySelectorAll('a[href*="orcid.org/"]');
+        
+        orcidLinks.forEach(link => {
+            // Skip if already processed
+            if (processedORCIDLinks.has(link)) return;
+            
+            // Skip if it's one of our own detector links
+            if (link.closest('.orcid-detector-container') || 
+                link.classList.contains('orcid-detector-container')) {
+                return;
+            }
+            
+            // Extract ORCID ID from the href
+            const href = link.getAttribute('href');
+            const match = href.match(/orcid\.org\/(\d{4}-\d{4}-\d{4}-\d{3}[\dX])/);
+            
+            if (!match) return;
+            
+            const orcidId = match[1];
+            
+            // Check if this link contains an ORCID logo image
+            const hasORCIDImage = link.querySelector('img[src*="orcid"]');
+            
+            if (hasORCIDImage) {
+                // Mark as processed
+                processedORCIDLinks.add(link);
+                
+                // Add our magnifying glass icon after the link
+                const logoSpan = document.createElement('span');
+                logoSpan.className = 'orcid-detector-logo-external';
+                logoSpan.style.marginLeft = '4px';
+                logoSpan.style.display = 'inline-block';
+                logoSpan.innerHTML = `
+                    <svg width="16" height="16" viewBox="-10 -10 300 300" style="vertical-align: middle; cursor: pointer;">
+                        <circle cx="120" cy="120" r="85" fill="none" stroke="#8FB82B" stroke-width="24"/>
+                        <circle cx="120" cy="120" r="42" fill="none" stroke="#8FB82B" stroke-width="18"/>
+                        <line x1="175" y1="175" x2="250" y2="250" stroke="#8FB82B" stroke-width="28" stroke-linecap="round"/>
+                    </svg>
+                `;
+                logoSpan.title = 'View ORCID profile details';
+                
+                // Add click handler
+                logoSpan.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showORCIDPopup(orcidId, logoSpan);
+                });
+                
+                // Insert after the link
+                link.parentNode.insertBefore(logoSpan, link.nextSibling);
+            }
+        });
+    }
 
     // Initialize the extension
     function init() {
         console.log('ORCID ID Detector: Initializing...');
+        
+        // Process existing ORCID links with logos
+        processExistingORCIDLinks();
         
         // Process the initial page content
         processPage();
@@ -170,7 +233,7 @@
         const logoSpan = document.createElement('span');
         logoSpan.className = 'orcid-detector-logo';
         logoSpan.innerHTML = `
-            <svg width="16" height="16" viewBox="0 0 280 280" style="margin-left: -2px; vertical-align: 2px; cursor: pointer;">
+            <svg width="16" height="16" viewBox="-10 -10 300 300" style="margin-left: -2px; vertical-align: 2px; cursor: pointer;">
                 <circle cx="120" cy="120" r="85" fill="none" stroke="#8FB82B" stroke-width="24"/>
                 <circle cx="120" cy="120" r="42" fill="none" stroke="#8FB82B" stroke-width="18"/>
                 <line x1="175" y1="175" x2="250" y2="250" stroke="#8FB82B" stroke-width="28" stroke-linecap="round"/>
@@ -328,7 +391,7 @@
             <div class="orcid-popup-content">
                 <div class="orcid-popup-header">
                     <div class="orcid-logo-header">
-                        <svg width="20" height="20" viewBox="0 0 280 280">
+                        <svg width="20" height="20" viewBox="-10 -10 300 300">
                             <circle cx="120" cy="120" r="85" fill="none" stroke="white" stroke-width="24"/>
                             <circle cx="120" cy="120" r="42" fill="none" stroke="white" stroke-width="18"/>
                             <line x1="175" y1="175" x2="250" y2="250" stroke="white" stroke-width="28" stroke-linecap="round"/>
@@ -536,6 +599,9 @@
                 // Debounce processing to avoid excessive calls
                 clearTimeout(window.orcidDetectorTimeout);
                 window.orcidDetectorTimeout = setTimeout(() => {
+                    // Process any new ORCID links with logos
+                    processExistingORCIDLinks();
+                    // Process text nodes for ORCID IDs
                     const newTextNodes = getTextNodes(document.body);
                     newTextNodes.forEach(processTextNode);
                 }, 500);
