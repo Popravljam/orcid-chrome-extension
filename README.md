@@ -1,4 +1,4 @@
-# ORCID ID Detector - Browser Extension (v1.2)
+# ORCID ID Detector - Browser Extension (v1.4)
 
 Automatically detect ORCID IDs on web pages and display researcher information in interactive popups.
 
@@ -13,6 +13,7 @@ This independent tool uses ORCID's public API to enhance the browsing experience
 ## Features
 
 - **Automatic Detection**: Finds ORCID IDs in various formats across any webpage
+- **Enhanced Existing Links**: Detects sites that already integrate ORCID (with logo images) and adds interactive features
 - **Visual Enhancement**: Adds clickable magnifying glass icons next to detected IDs
 - **Profile Previews**: Shows researcher information in beautiful popup tooltips
 - **Direct Links**: Quick access to full ORCID profiles
@@ -26,10 +27,17 @@ This independent tool uses ORCID's public API to enhance the browsing experience
 > **Note**: Screenshots coming soon! For now, you can test the extension yourself to see it in action.
 
 ### ORCID ID Detection
-When the extension detects an ORCID ID on a page, it:
+The extension works in two modes:
+
+**Plain Text ORCID IDs:**
 - Highlights the ID in green with an underline
 - Adds a small magnifying glass icon next to it
 - Makes both clickable for profile viewing
+
+**Sites with Existing ORCID Integration:**
+- Detects ORCID links that already have ORCID logo images
+- Adds the magnifying glass icon next to the existing ORCID logo
+- Provides quick access to detailed profile information without leaving the page
 
 ### Profile Popup
 Clicking on an enhanced ORCID ID shows:
@@ -121,9 +129,11 @@ Click the magnifying glass icon in your browser toolbar to:
 
 ### ORCID ID Detection
 - Uses robust regex patterns to match various ORCID ID formats
+- Detects existing ORCID links with logo images (e.g., orcid_16x16.png)
 - Processes both static and dynamic content
 - Handles single-page applications with mutation observers
 - Avoids duplicate processing for performance
+- Works seamlessly on sites that already integrate ORCID identifiers
 
 ### API Integration
 - Uses ORCID's public API (no authentication required)
