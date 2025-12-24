@@ -1,4 +1,4 @@
-# ORCID ID Detector - Browser Extension (v1.5)
+# ORCID ID Detector - Browser Extension (v1.4)
 
 Automatically detect ORCID IDs on web pages and display researcher information in interactive popups.
 
